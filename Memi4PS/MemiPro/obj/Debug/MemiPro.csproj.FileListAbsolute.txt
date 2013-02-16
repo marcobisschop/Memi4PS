@@ -1,0 +1,4 @@
+C:\Users\Marco\Documents\GitHub\Memi4PS\Memi4PS\MemiPro\bin\MemiPro.dll
+C:\Users\Marco\Documents\GitHub\Memi4PS\Memi4PS\MemiPro\bin\MemiPro.pdb
+C:\Users\Marco\Documents\GitHub\Memi4PS\Memi4PS\MemiPro\obj\Debug\MemiPro.dll
+C:\Users\Marco\Documents\GitHub\Memi4PS\Memi4PS\MemiPro\obj\Debug\MemiPro.pdb
