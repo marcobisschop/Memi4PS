@@ -1,0 +1,165 @@
+<!-- #include file="../../templates/headers/content.asp" -->
+<!-- #include file="functions.asp" -->
+<%
+	dim recordid, rs, sql, tablename
+	
+	viewstate = viewstate_value("viewstate")
+	myLetter = viewstate_value("myLetter")
+	page = viewstate_value("page")
+	recordid  = viewstate_value("id")
+	tablename = "keuzen"
+	
+	select case lcase(viewstate)
+	case "view"
+		sql = "select * from [" & tablename & "] where id = " & recordid
+		set rs = getrecordset(sql,false)
+	case "edit","save"
+		sql = "select * from [" & tablename & "] where id = " & recordid
+		set rs = getrecordset(sql,false)
+	case "new","savenew"
+		sql = "select * from [" & tablename & "] where id = -1"
+		set rs = getrecordset(sql,false)
+		rs.addnew
+		sec_setsecurityinfo (rs)
+	case else
+		response.Write "invalid viewstate !!"
+		response.end
+	end select
+	
+	if viewstate = "save" or viewstate = "savenew" then	
+		if ispostback() then
+			if not v_valid("^\w+$",true,fieldvalue(rs,"keunaa")) then v_addformerror "keunaa"
+			if not v_valid(isvalidcurrency,true,fieldvalue(rs,"prikop")) then v_addformerror "prikop"
+			if not v_valid("\d+$",true,fieldvalue(rs,"keucat_id")) then v_addformerror "keucat_id"
+			if not v_valid("\d+$",true,fieldvalue(rs,"keuafd_id")) then v_addformerror "keuafd_id"
+			if errorcount = 0 then 
+					viewstate = "update"
+			end if
+		end if		
+	end if
+	
+	if viewstate = "update" then 
+		save_rs rs
+		recordid = rs.fields("id")		
+		viewstate = "view"
+		response.Redirect viewstate_value("REFURL")
+	end if
+	
+	if viewstate="edit" then viewstate = "save"
+	if viewstate="new" then viewstate = "savenew"
+	
+	function save_rs(rs)
+		with rs
+			'.fields("keucod") = fieldvalue(rs,"keucod")
+			'.fields("keunaa") = fieldvalue(rs,"keucod")
+			'.fields("altcod") = fieldvalue(rs,"altcod")
+			'.fields("keubes") = fieldvalue(rs,"keubes")
+			'.fields("prikop") = convertvalue(fieldvalue(rs,"prikop"))
+			'.fields("voltek") = checkboxvalue(fieldvalue(rs,"voltek"))
+			'.fields("keucat_id") = fieldvalue(rs,"keucat_id")
+			'.fields("keuafd_id") = fieldvalue(rs,"keuafd_id")
+			'.fields("slucat_id") = fieldvalue(rs,"slucat_id")
+			'.fields("defini") = checkboxvalue(fieldvalue(rs,"defini"))
+			'.fields("control") = checkboxvalue(fieldvalue(rs,"control"))
+			'.fields("afrond") = checkboxvalue(fieldvalue(rs,"afrond"))
+			'.fields("natebe") = checkboxvalue(fieldvalue(rs,"natebe"))
+			'.fields("voorstel") = checkboxvalue(fieldvalue(rs,"voorstel"))
+			'.fields("locked") = checkboxvalue(fieldvalue(rs,"locked"))
+			'.fields("aanmin") = fieldvalue(rs,"aanmin")
+			'.fields("aanmax") = fieldvalue(rs,"aanmax")
+			'.fields("aantal") = fieldvalue(rs,"aantal")
+			
+		end with
+		sec_setsecurityinfo rs 
+		putrecordset rs 
+	end function
+	
+	viewstate = "view"
+	
+	
+	keuzen_header recordid
+	f_form_hdr()
+	f_hidden "page"
+%>
+
+<table style="" cellpadding=0 cellspacing=0 ID="Table1">
+	<tr>
+		<td valign="top">
+			<table style="" ID="Table2">
+				<%
+					f_textbox rs,"keucod","keucod","150"
+					f_textbox rs,"altcod","altcod","150"
+					f_textbox rs,"prikop","prikop",150
+				    
+				%>
+			</table>
+		</td>
+		<td valign="top">
+			<table style="" ID="Table3">
+				<%
+					f_checkbox rs,"voltek","voltek"
+					f_checkbox rs,"natebe","natebe"
+					f_checkbox rs,"is_voorstel","voorstel"
+				%>
+			</table>
+		</td>
+		
+	</tr>
+</table>	
+<table style="" cellpadding=0 cellspacing=0 ID="Table6">
+	<tr>
+		<td valign="top">
+			<table style="" ID="Table5">
+				<%
+					f_frm_divider getlabel("keubes")
+					f_textarea rs,"keubes","keubes","100%",120
+					
+					f_frm_divider getlabel("catafd")
+					f_listbox rs,"keucat","keucat_id","select * from vw_keucat order by catnaa","id","catnaa","100%",""
+					f_listbox rs,"keuafd","keuafd_id","select * from keuafd order by afdnaa","id","afdnaa","100%",""
+					
+				%>
+			</table>
+		</td>
+		
+	</tr>
+</table>
+<table style="" cellpadding=0 cellspacing=0 ID="Table7">
+	<tr>
+		<td valign="top">
+			<table style="" ID="Table8">
+				<%
+					f_frm_divider getlabel("Voortgang")
+					%>
+</td>
+	</tr>
+</table>					
+<table style="" cellpadding=0 cellspacing=0 ID="Table9">
+	<tr>
+		<td valign="top">
+			<table style="" ID="Table10">
+				<%
+
+					f_listbox rs,"slucat","slucat_id","select * from slucat order by catnaa","id","catnaa","100%",""
+					f_checkbox rs,"defini","defini"
+					f_checkbox rs,"control","control"
+					f_checkbox rs,"afrond","afrond"
+				%>
+			</table>
+		</td>
+		<td valign="top">
+			<table style="" ID="Table4">
+				<%
+					f_textbox rs,"aanmin","aanmin",40
+					f_textbox rs,"aanmax","aanmax",40
+					f_textbox rs,"aantal","aantal",40
+					'f_checkbox rs,"locked","locked"
+				%>
+			</table>
+		</td>
+	</tr>
+</table>
+<%
+'f_form_ftr()
+%>
+<!-- #include file="../../templates/footers/content.asp" -->

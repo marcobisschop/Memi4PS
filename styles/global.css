@@ -1,0 +1,81 @@
+* 
+{
+    line-height: 18px;
+}
+body
+{
+	font-family: Verdana, Helvetica, Arial;
+	font-size: 11px;
+	color: #000000;
+}
+table 
+{
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.editor 
+{
+	width: 5px;
+}
+td
+{
+	font-family: Verdana, Helvetica, Arial;
+	font-size: 11px;
+	color: #000000;
+}
+input
+{
+	font-family: Verdana, Helvetica, Arial;
+	font-size: 11px;
+	color: #000000;
+	vertical-align: middle;
+	height: 24px;
+}
+.frm_login 
+{
+	width: 400px;
+	height: 250px;
+	border: solid 1px #e0e0e0;
+}
+.frm_login_header 
+{
+	background-color: #003a77;
+	color: #ffffff;
+	height: 100px;
+	padding: 11px 11px 11px 11px;
+}
+.frm_login_content 
+{
+	background-color: #ffffff;
+	height: 100px;
+	padding: 11px 11px 11px 11px;
+}
+.frm_login_footer 
+{
+	background-color: #fff;
+	background-position: right;
+	background-repeat: no-repeat;
+	height: 180px;
+	color: #003a77;
+	padding: 11px 11px 11px 11px;
+	vertical-align: top;
+}
+.frm_login_footer A
+{
+	color: #003a77;
+}
+img 
+{
+	border: none;
+}
+A 
+{
+	color: #003a77;
+}
+H1 
+{
+	font-size: 16px;
+	font-weight:700;	
+	color: #003a77;
+}

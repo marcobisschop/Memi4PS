@@ -1,0 +1,51 @@
+.stabu 
+{
+    width: 100%;
+}
+.stabu TD
+{
+    padding: 2px 2px 2px 2px;
+    border-bottom: solid 1px #e0e0e0;
+    }
+.stabu  TH
+{
+    background-color: #000;
+    color: #fff;
+    text-align: left;
+    padding: 2px 2px 2px 2px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.stabu_level
+{
+    color: #000;
+    font-weight: normal;
+}
+
+.stabu_level_0 
+{
+    color: #f00;
+    font-weight: bold;
+}
+
+.stabu_level_1 
+{
+    color: #00f;
+    font-weight: bold;
+}
+
+.stabu_nacalc 
+{
+    color: #ffccee;
+    font-weight: normal;
+}
+
+.stabu_actions A 
+{
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #00F;
+    border-bottom-style:inset;
+    padding: 0px 2px 2px 2px;
+}

@@ -1,0 +1,57 @@
+BODY
+{
+    BACKGROUND-IMAGE: none;
+    MARGIN: 0px;
+    FONT: 8pt tahoma,arial,sans-serif;
+    BACKGROUND-REPEAT: repeat;
+    BACKGROUND-COLOR: #ffffff
+}
+.dialogFooter
+{
+    BORDER-TOP: #e6e6e6 1px solid;
+    BACKGROUND-COLOR: #efefef
+}
+TD
+{
+    FONT-SIZE: 8pt
+}
+INPUT
+{
+    FONT: 8pt tahoma,arial,sans-serif
+}
+SELECT
+{
+    FONT: 8pt tahoma,arial,sans-serif
+}
+.inpSel
+{
+    FONT: 8pt tahoma,arial,sans-serif
+}
+.inpTxt
+{
+    FONT: 8pt tahoma,arial,sans-serif
+}
+.inpChk
+{
+    MARGIN-BOTTOM: 1px;
+    WIDTH: 13px;
+    MARGIN-RIGHT: 3px;
+    HEIGHT: 13px
+}
+.inpRdo
+{
+    MARGIN-BOTTOM: 1px;
+    WIDTH: 13px;
+    MARGIN-RIGHT: 3px;
+    HEIGHT: 13px
+}
+.inpBtn
+{
+    FONT: 8pt tahoma,arial,sans-serif
+}
+.inpBtnOver
+{
+}
+.inpBtnOut
+{
+}

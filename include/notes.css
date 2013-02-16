@@ -1,0 +1,28 @@
+BODY
+{
+    FONT-SIZE: 11px;
+    COLOR: black;
+    FONT-FAMILY: Verdana
+}
+TD
+{
+    FONT-SIZE: 11px;
+    FONT-FAMILY: Verdana
+}
+INPUT
+{
+    FONT-SIZE: 10px;
+    FONT-FAMILY: verdana
+}
+SPAN.zoek
+{
+    FONT-WEIGHT: bolder;
+    FONT-SIZE: 11px;
+    COLOR: white;
+    FONT-FAMILY: Verdana;
+    BACKGROUND-COLOR: #3399ff
+}
+.header
+{
+    BACKGROUND-COLOR: #3399ff
+}

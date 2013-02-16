@@ -1,0 +1,44 @@
+﻿body 
+{
+	padding: 10px 10px 10px 10px;
+}
+.forum_title 
+{
+	width: 100%;
+	padding: 10px 10px 10px 10px;
+	font-size: 18px;
+	border-bottom: dotted 2px #a02323;
+	
+}
+.forum_post_even 
+{
+	width: 100%;
+	padding: 10px 10px 10px 10px;
+	background-color: #C8C8C8;	
+	height: 60%;
+	overflow: auto;
+}
+.forum_post_odd 
+{
+	width: 100%;
+	padding: 10px 10px 10px 10px;
+	background-color: #FFFFFF;	
+	height: 60%;
+	overflow: auto;
+}
+.forum_txt 
+{
+	padding: 0px 10px 10px 0px;	
+}
+.forum_reaction
+{
+	width: 100%;
+	padding:  10px 0px 0px  0px;
+	font-size: 18px;
+	border-top: dotted 2px #a02323;
+}
+.forum_post_by 
+{
+	border-top: solid 1px #FF0000;
+	font-style: italic;
+}
